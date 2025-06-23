@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yazlık Villa Kiralama | VillaSun</title>
+
+  <!-- Tailwind → CDN ile derlemesiz kullanım -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Opsiyonel Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>body{font-family:'Poppins',sans-serif}</style>
+</head>
+
+<body class="text-gray-800">
+
+  <!-- HERO -->
+  <header class="relative h-screen bg-cover bg-center" style="background-image:url('https://source.unsplash.com/1600x900/?villa,sea')">
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <nav class="relative z-20 flex justify-between items-center px-8 py-4">
+      <h1 class="text-2xl font-semibold text-white">VillaSun</h1>
+      <a href="#iletisim" class="px-6 py-2 bg-teal-500 text-white rounded hover:bg-teal-600 transition">Rezervasyon</a>
+    </nav>
+
+    <div class="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4">
+      <h2 class="text-4xl md:text-6xl font-bold mb-6">Hayalinizdeki Yaz Tatilini<br />Şimdi Planlayın</h2>
+      <p class="max-w-xl mb-8">Denize yürüme mesafesinde, özel havuzlu lüks villalar. 7/24 concierge hizmeti.</p>
+      <a href="#iletisim" class="px-8 py-3 bg-teal-500 rounded hover:bg-teal-600 transition text-lg font-medium">Hemen Rezervasyon</a>
+    </div>
+  </header>
+
+  <!-- ÖZELLİKLER -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6 md:px-12">
+      <h3 class="text-3xl font-bold text-center mb-12">Neden VillaSun?</h3>
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- Kart -->
+        <div class="p-6 bg-white rounded shadow text-center">
+          <img src="https://img.icons8.com/fluency/96/000000/swimming-pool.png" alt="Havuzlu" class="w-16 mx-auto mb-4">
+          <h4 class="text-xl font-semibold mb-2">Özel Havuz</h4>
+          <p>Yalnızca size ait geniş havuzlarda rahatlayın.</p>
+        </div>
+        <div class="p-6 bg-white rounded shadow text-center">
+          <img src="https://img.icons8.com/fluency/96/000000/sea.png" alt="Deniz Manzarası" class="w-16 mx-auto mb-4">
+          <h4 class="text-xl font-semibold mb-2">Mükemmel Manzara</h4>
+          <p>Ege ve Akdeniz'in muhteşem deniz manzaraları.</p>
+        </div>
+        <div class="p-6 bg-white rounded shadow text-center">
+          <img src="https://img.icons8.com/fluency/96/000000/concierge-bell.png" alt="Concierge" class="w-16 mx-auto mb-4">
+          <h4 class="text-xl font-semibold mb-2">7/24 Concierge</h4>
+          <p>Tüm ihtiyaçlarınız için anında destek.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM / REZERVASYON -->
+  <section id="iletisim" class="py-16">
+    <div class="container mx-auto px-6 md:px-12 max-w-2xl">
+      <h3 class="text-3xl font-bold text-center mb-8">Rezervasyon / Soru</h3>
+
+      <!-- Netlify form entegrasyonu -->
+      <form name="contact" netlify>
+        <div class="mb-4">
+          <label for="isim" class="block font-medium mb-2">Ad Soyad</label>
+          <input id="isim" name="isim" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block font-medium mb-2">E-posta</label>
+          <input type="email" id="email" name="email" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500">
+        </div>
+        <div class="mb-6">
+          <label for="mesaj" class="block font-medium mb-2">Mesaj</label>
+          <textarea id="mesaj" name="mesaj" rows="5" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+        </div>
+        <button class="w-full py-3 bg-teal-500 text-white rounded hover:bg-teal-600 transition">Gönder</button>
+      </form>
+
+      <p class="text-xs text-center text-gray-500 mt-4">Formu doldurduğunuzda ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 bg-gray-800">
+    <div class="text-center text-gray-400">
+      © <span id="year"></span> VillaSun. Tüm hakları saklıdır.
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
