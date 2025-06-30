@@ -25,35 +25,54 @@
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
-<body class="text-slate-800">
+<body class="text-slate-800 overflow-x-hidden">
 
   <!-- HERO / SLIDER -->
   <section class="relative">
     <div class="swiper h-[75vh]">
       <div class="swiper-wrapper">
         <!-- Stok görseller; ileride assets/ klasöründen çağırabilirsiniz -->
-        <div class="swiper-slide">
-          <img src="assets/dis-1.jpeg" class="w-full h-full object-cover" alt="Villa 1">
+        <div class="swiper-slide relative overflow-hidden">
+          <!-- Blurlu arka plan -->
+          <img src="assets/dis-4.jpeg"
+               class="absolute inset-0 w-full h-full object-cover scale-110 blur-xl" />
+
+          <!-- Net fotoğraf (orta hizalı, büyütülmüş) -->
+          <img src="assets/dis-4.jpeg"
+               class="relative z-10 w-full h-full object-contain object-center scale-110 md:scale-150" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/dis-2.jpeg" class="w-full h-full object-cover" alt="Villa 2">
+          <img src="assets/dis-4.jpeg" class="w-full h-full" style="object-fit: cover; object-position: 0% 30%" alt="Villa 2">
         </div>
         <div class="swiper-slide">
-          <img src="assets/dis-3.jpeg" class="w-full h-full object-cover" alt="Villa 3">
+          <img src="assets/dis-4.jpeg" class="w-full h-full" style="object-fit: cover; object-position: 0% 60%" alt="Villa 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/dis-1.jpeg" class="w-full h-full object-cover" alt="Villa 3">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/dis-2.jpeg" class="w-full h-full object-cover" alt="Villa 4">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/dis-3.jpeg" class="w-full h-full object-cover" alt="Villa 5">
         </div>
       </div>
 
       <!-- Oklar -->
-      <div class="swiper-button-prev !text-white"></div>
-      <div class="swiper-button-next !text-white"></div>
+      <div class="swiper-button-prev !text-white z-30"></div>
+      <div class="swiper-button-next !text-white z-30"></div>
       <div class="swiper-pagination !bottom-4"></div>
     </div>
 
     <!-- Yarı saydam başlık -->
-    <div class="absolute inset-0 bg-black/40 z-10"></div>
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 z-20">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">Aspen Villaları</h1>
-      <p class="text-lg md:text-2xl max-w-2xl">Ege’nin incisi Bozbük’te denize yürüme mesafesinde lüks yazlık villalar.</p>
+    <div class="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 z-20 pointer-events-none">
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-br from-sky-300 via-cyan-100 to-white drop-shadow-xl">
+        Aspen Villaları
+      </h1>
+      <p class="text-base md:text-xl lg:text-2xl max-w-5xl font-light tracking-wide bg-black/30 backdrop-blur-sm px-5 py-3 rounded shadow-lg">
+        Ege’nin incisi <span class="font-semibold">Bozbük</span>’te denize yürüme mesafesinde lüks yazlık villalar.
+      </p>
     </div>
   </section>
 
@@ -63,22 +82,29 @@
       <h2 class="text-3xl font-bold text-center mb-12 text-sky-700">Odalarımız</h2>
       <div class="grid gap-8 md:grid-cols-3">
         <!-- Oturma Odası -->
-        <a href="assets/oturma.jpg" data-lightbox="rooms" data-title="Oturma Odası" class="group relative">
+        <a href="assets/oturma.jpg" data-lightbox="oturma" data-title="Oturma Odası" class="group relative">
           <img src="assets/oturma.jpg" alt="Oturma Odası" class="rounded-lg shadow-lg object-cover w-full h-64">
           <span class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition text-white text-xl font-semibold">Oturma Odası</span>
         </a>
 
         <!-- Mutfak -->
-        <a href="assets/mutfak.jpg" data-lightbox="rooms" data-title="Mutfak" class="group relative">
+        <a href="assets/mutfak.jpg" data-lightbox="mutfak" data-title="Mutfak" class="group relative">
           <img src="assets/mutfak.jpg" alt="Mutfak" class="rounded-lg shadow-lg object-cover w-full h-64">
           <span class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition text-white text-xl font-semibold">Mutfak</span>
         </a>
 
+        <!-- Gizli ek mutfak görselleri -->
+        <a href="assets/mutfak-2.jpg" data-lightbox="mutfak" style="display:none"></a>
+        <a href="assets/mutfak-3.jpg" data-lightbox="mutfak" style="display:none"></a>
+
         <!-- Yatak Odası -->
-        <a href="assets/yatak.jpg" data-lightbox="rooms" data-title="Yatak Odası" class="group relative">
+        <a href="assets/yatak.jpg" data-lightbox="yatak" data-title="Yatak Odası" class="group relative">
           <img src="assets/yatak.jpg" alt="Yatak Odası" class="rounded-lg shadow-lg object-cover w-full h-64">
           <span class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition text-white text-xl font-semibold">Yatak Odası</span>
         </a>
+
+        <!-- Gizli ilerideki ek oturma/yatak fotoğrafları için şablon (opsiyonel) -->
+        <!-- <a href="assets/yatak-2.jpg" data-lightbox="yatak" style="display:none"></a> -->
       </div>
     </div>
   </section>
@@ -109,7 +135,7 @@
           <p>Akşam yemekleri için sosyal ortam sağlar.</p>
         </div>
         <div class="p-6 bg-white rounded shadow-md text-center">
-          <img src="https://img.icons8.com/fluency/96/000000/dog-paw-print.png" class="w-14 mx-auto mb-4" alt="Evcil Hayvan">
+          <img src="https://img.icons8.com/fluency/96/000000/dog-paw-print.png" alt="Evcil Hayvan" class="w-14 mx-auto mb-4">
           <h3 class="text-xl font-semibold mb-2">Evcil Hayvan Dostu</h3>
           <p>Dört ayaklı dostlarınızı yanınızda getirebilirsiniz.</p>
         </div>
